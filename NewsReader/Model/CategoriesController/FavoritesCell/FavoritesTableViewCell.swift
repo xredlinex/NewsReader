@@ -9,6 +9,11 @@
 import UIKit
 
 class FavoritesTableViewCell: UITableViewCell {
+    
+    @IBOutlet weak var newsTitleTextLabel: UILabel!
+    
+    @IBOutlet weak var newsDescriptionTextLabel: UILabel!
+    
 
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -21,4 +26,14 @@ class FavoritesTableViewCell: UITableViewCell {
         // Configure the view for the selected state
     }
     
+}
+
+
+extension FavoritesTableViewCell {
+    
+    func updateFavoritesCell(_ news: NewsArticleModel) {
+        
+        newsTitleTextLabel.text = news.title ?? "-"
+        newsDescriptionTextLabel.text = news.description ?? "-"
+    }
 }

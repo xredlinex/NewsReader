@@ -8,59 +8,44 @@
 
 import Foundation
 import UIKit
-import ObjectMapper
 
-class NewsModel: Mappable {
-    
+
+class NewsModel: Codable {
     var status: String?
     var totalResults: Int?
-    var articles: [NewsArticlesSourseModel]?
+    var articles: [NewsArticleModel]?
     
-    required init?(map: Map) {
+    enum CodingKeys: String, CodingKey {
+        case status = "status"
+        case totalResults = "totalResults"
+        case articles = "articles"
     }
     
-    func mapping(map: Map) {
-        status          <- map["status"]
-        totalResults    <- map["totalResults"]
-        articles        <- map["author"]
-    }
 }
 
-class NewsArticlesModel: Mappable {
-    var sourse: NewsArticlesSourseModel?
+class NewsArticleModel: Codable {
+    var source: NewsArticleSourceModel?
     var author: String?
     var title: String?
     var description: String?
     var url: String?
     var urlToImage: String?
-    var publishAt: String?
+    var publishedAt: String?
     var content: String?
-    var favoriteNews: Bool?
     
-    required init?(map: Map) {
-    }
-    
-    func mapping(map: Map) {
-        sourse          <- map["sourse"]
-        author          <- map["author"]
-        title           <- map["title"]
-        description     <- map["description"]
-        url             <- map["url"]
-        urlToImage      <- map["urlToImage"]
-        publishAt       <- map["publishAt"]
-        content         <- map["content"]
-    }
+    enum CodingKeys: String, CodingKey {
+        case source, author, title, description, url, urlToImage, publishedAt, content
+      }
 }
 
-class NewsArticlesSourseModel: Mappable {
+class NewsArticleSourceModel: Codable {
     var id: String?
     var name: String?
     
-    required init?(map: Map) {
+    enum CodingKeys: String, CodingKey {
+        case id = "id"
+        case name = "name"
+
     }
     
-    func mapping(map: Map) {
-        id      <- map["id"]
-        name    <- map["name"]
-    }
 }

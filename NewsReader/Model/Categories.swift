@@ -41,3 +41,7 @@ class MakeNewsCategories {
 }
 
 
+class NewsReaderData {
+    var categories: [NewsCategories]?
+    var favoriteNews: [NewsArticleModel]?
+}
