@@ -10,6 +10,9 @@ import UIKit
 
 class NewsReaderViewController: UIViewController {
 
+    @IBOutlet weak var collectionView: UICollectionView!
+    
+    
     var searchKeyword = String()
     var newsList: [NewsArticleModel] = []
     
@@ -20,4 +23,19 @@ class NewsReaderViewController: UIViewController {
 
         
     }
+}
+
+
+extension NewsReaderViewController {
+    
+    func newsRequest(_ parameters: [String : Any]) {
+        
+        if !isLoading {
+            
+        }
+        
+    }
+    
+    
+    
 }
