@@ -11,8 +11,7 @@
 		9720134823E977A600E7C0FC /* NewsReaderViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9720134723E977A600E7C0FC /* NewsReaderViewController.swift */; };
 		9799918E23E97E2F0096A2C0 /* NewsReaderViewController+CollectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9799918D23E97E2F0096A2C0 /* NewsReaderViewController+CollectionView.swift */; };
 		9799919023E97E4E0096A2C0 /* NewsReaderViewController+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9799918F23E97E4E0096A2C0 /* NewsReaderViewController+Extension.swift */; };
-		9799919323E97E6C0096A2C0 /* NewsCollectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9799919123E97E6C0096A2C0 /* NewsCollectionViewController.swift */; };
-		9799919423E97E6C0096A2C0 /* NewsCollectionViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9799919223E97E6C0096A2C0 /* NewsCollectionViewController.xib */; };
+		9799919723E9803D0096A2C0 /* Class+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9799919623E9803D0096A2C0 /* Class+Extension.swift */; };
 		979DD54423E8D10500421FA9 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 979DD54323E8D10500421FA9 /* AppDelegate.swift */; };
 		979DD54623E8D10500421FA9 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 979DD54523E8D10500421FA9 /* SceneDelegate.swift */; };
 		979DD54B23E8D10500421FA9 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 979DD54923E8D10500421FA9 /* Main.storyboard */; };
@@ -34,8 +33,7 @@
 		9720134723E977A600E7C0FC /* NewsReaderViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewsReaderViewController.swift; sourceTree = "<group>"; };
 		9799918D23E97E2F0096A2C0 /* NewsReaderViewController+CollectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "NewsReaderViewController+CollectionView.swift"; sourceTree = "<group>"; };
 		9799918F23E97E4E0096A2C0 /* NewsReaderViewController+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "NewsReaderViewController+Extension.swift"; sourceTree = "<group>"; };
-		9799919123E97E6C0096A2C0 /* NewsCollectionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewsCollectionViewController.swift; sourceTree = "<group>"; };
-		9799919223E97E6C0096A2C0 /* NewsCollectionViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = NewsCollectionViewController.xib; sourceTree = "<group>"; };
+		9799919623E9803D0096A2C0 /* Class+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = "Class+Extension.swift"; path = "/Volumes/dalobian HD/09. nightflyer/91. itea ios advanced/hometask/20200206NewsReader/NewsReader/NewsReader/Model/Class+Extension.swift"; sourceTree = "<absolute>"; };
 		979DD54023E8D10500421FA9 /* NewsReader.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = NewsReader.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		979DD54323E8D10500421FA9 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		979DD54523E8D10500421FA9 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -85,18 +83,16 @@
 				9720134723E977A600E7C0FC /* NewsReaderViewController.swift */,
 				9799918D23E97E2F0096A2C0 /* NewsReaderViewController+CollectionView.swift */,
 				9799918F23E97E4E0096A2C0 /* NewsReaderViewController+Extension.swift */,
-				9799919523E97E720096A2C0 /* NewsCollectionCell */,
 			);
 			path = NewsReader;
 			sourceTree = "<group>";
 		};
-		9799919523E97E720096A2C0 /* NewsCollectionCell */ = {
+		9799919823E9805C0096A2C0 /* Extension */ = {
 			isa = PBXGroup;
 			children = (
-				9799919123E97E6C0096A2C0 /* NewsCollectionViewController.swift */,
-				9799919223E97E6C0096A2C0 /* NewsCollectionViewController.xib */,
+				9799919623E9803D0096A2C0 /* Class+Extension.swift */,
 			);
-			path = NewsCollectionCell;
+			path = Extension;
 			sourceTree = "<group>";
 		};
 		979DD53723E8D10500421FA9 = {
@@ -123,6 +119,7 @@
 				979DD54323E8D10500421FA9 /* AppDelegate.swift */,
 				979DD54523E8D10500421FA9 /* SceneDelegate.swift */,
 				979DD55923E8D24700421FA9 /* Model */,
+				9799919823E9805C0096A2C0 /* Extension */,
 				97CAC24823E97C2A00868092 /* NewsRequest */,
 				979DD55E23E8DC5500421FA9 /* CategoriesController */,
 				9720134D23E977C300E7C0FC /* NewsReader */,
@@ -253,7 +250,6 @@
 				979DD56623E8DF6300421FA9 /* CategoriesTableViewCell.xib in Resources */,
 				979DD54D23E8D10600421FA9 /* Assets.xcassets in Resources */,
 				979DD56B23E8DFBA00421FA9 /* FavoritesTableViewCell.xib in Resources */,
-				9799919423E97E6C0096A2C0 /* NewsCollectionViewController.xib in Resources */,
 				979DD54B23E8D10500421FA9 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -311,6 +307,7 @@
 				9799919023E97E4E0096A2C0 /* NewsReaderViewController+Extension.swift in Sources */,
 				979DD56A23E8DFBA00421FA9 /* FavoritesTableViewCell.swift in Sources */,
 				979DD56523E8DF6300421FA9 /* CategoriesTableViewCell.swift in Sources */,
+				9799919723E9803D0096A2C0 /* Class+Extension.swift in Sources */,
 				979DD55D23E8DBAA00421FA9 /* NewsCategoriesViewController.swift in Sources */,
 				979DD55B23E8D80200421FA9 /* Categories.swift in Sources */,
 				9799918E23E97E2F0096A2C0 /* NewsReaderViewController+CollectionView.swift in Sources */,
@@ -318,7 +315,6 @@
 				9720134823E977A600E7C0FC /* NewsReaderViewController.swift in Sources */,
 				979DD54423E8D10500421FA9 /* AppDelegate.swift in Sources */,
 				979DD54623E8D10500421FA9 /* SceneDelegate.swift in Sources */,
-				9799919323E97E6C0096A2C0 /* NewsCollectionViewController.swift in Sources */,
 				97CAC24723E97C2600868092 /* NewsRequest.swift in Sources */,
 				979DD56223E8DC9E00421FA9 /* NewsCategoriesViewController+Extension.swift in Sources */,
 			);

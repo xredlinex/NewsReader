@@ -11,6 +11,9 @@ import UIKit
 class NewsReaderViewController: UIViewController {
 
     var searchKeyword = String()
+    var newsList: [NewsArticleModel] = []
+    
+    var isLoading: Bool = true
     
     override func viewDidLoad() {
         super.viewDidLoad()
