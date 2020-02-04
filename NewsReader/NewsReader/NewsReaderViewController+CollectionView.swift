@@ -6,4 +6,15 @@
 //  Copyright © 2020 alexey sorochan. All rights reserved.
 //
 
-import Foundation
+import UIKit
+
+extension NewsReaderViewController: UICollectionViewDataSource, UICollectionViewDelegate {
+    
+    
+    
+    
+    
+    
+    
+    
+}
