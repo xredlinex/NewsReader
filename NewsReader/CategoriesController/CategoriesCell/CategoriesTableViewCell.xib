@@ -20,30 +20,31 @@
                         <rect key="frame" x="15" y="10" width="404" height="62"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="News Name Categories" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="lSa-Jm-AGb">
-                                <rect key="frame" x="30" y="20.5" width="274" height="21"/>
+                                <rect key="frame" x="30" y="20.5" width="279" height="21"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <nil key="textColor"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="a3L-M4-0n7">
-                                <rect key="frame" x="334" y="11" width="40" height="40"/>
+                                <rect key="frame" x="339" y="13.5" width="35" height="35"/>
                                 <subviews>
                                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="arrow.right.circle" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="4kX-Ub-o8k">
-                                        <rect key="frame" x="0.0" y="0.5" width="40" height="39"/>
+                                        <rect key="frame" x="0.0" y="0.5" width="35" height="34"/>
+                                        <color key="tintColor" red="0.96167779060000003" green="0.96167779060000003" blue="0.96167779060000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                     </imageView>
                                 </subviews>
-                                <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
                                     <constraint firstAttribute="bottom" secondItem="4kX-Ub-o8k" secondAttribute="bottom" id="MvN-Bj-4OI"/>
                                     <constraint firstItem="4kX-Ub-o8k" firstAttribute="leading" secondItem="a3L-M4-0n7" secondAttribute="leading" id="cA4-MW-Rsk"/>
-                                    <constraint firstAttribute="height" constant="40" id="jYY-xk-Lcb"/>
+                                    <constraint firstAttribute="height" constant="35" id="jYY-xk-Lcb"/>
                                     <constraint firstAttribute="trailing" secondItem="4kX-Ub-o8k" secondAttribute="trailing" id="kny-Bo-rHh"/>
-                                    <constraint firstAttribute="width" constant="40" id="nje-9z-QbQ"/>
+                                    <constraint firstAttribute="width" constant="35" id="nje-9z-QbQ"/>
                                     <constraint firstItem="4kX-Ub-o8k" firstAttribute="top" secondItem="a3L-M4-0n7" secondAttribute="top" id="p6s-5j-A37"/>
                                 </constraints>
                             </view>
                         </subviews>
-                        <color key="backgroundColor" systemColor="systemIndigoColor" red="0.34509803919999998" green="0.33725490200000002" blue="0.83921568629999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <color key="backgroundColor" red="0.07862397283" green="0.089949555700000003" blue="0.1019626185" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                         <constraints>
                             <constraint firstItem="lSa-Jm-AGb" firstAttribute="centerY" secondItem="Arx-28-hUX" secondAttribute="centerY" id="Ifz-2F-MeB"/>
                             <constraint firstAttribute="trailing" secondItem="a3L-M4-0n7" secondAttribute="trailing" constant="30" id="eVM-Op-sI9"/>
@@ -54,6 +55,7 @@
                         </constraints>
                     </view>
                 </subviews>
+                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                 <constraints>
                     <constraint firstItem="Arx-28-hUX" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="15" id="AUI-6r-PBs"/>
                     <constraint firstItem="Arx-28-hUX" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="10" id="Wbp-Jl-iS9"/>
@@ -61,6 +63,7 @@
                     <constraint firstAttribute="trailing" secondItem="Arx-28-hUX" secondAttribute="trailing" constant="15" id="uzK-N6-dqx"/>
                 </constraints>
             </tableViewCellContentView>
+            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
             <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
             <connections>
                 <outlet property="newsCategoriesNameTextLabel" destination="lSa-Jm-AGb" id="eVf-FO-QCH"/>

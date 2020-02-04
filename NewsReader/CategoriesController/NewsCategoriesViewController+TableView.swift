@@ -50,16 +50,18 @@ extension NewsCategoriesViewController: UITableViewDelegate, UITableViewDataSour
             let view = UIView(frame: CGRect(x: 0, y: 0, width: tableView.frame.width, height: 30))
             let label = UILabel(frame: view.frame)
             label.font = UIFont.systemFont(ofSize: 15)
-            label.backgroundColor = UIColor.lightGray
+            label.textColor = UIColor.white
+            label.backgroundColor = UIColor(red: 44/255, green: 47/255, blue: 53/255, alpha: 1)
             label.textAlignment = .center
-            label.text = "News Categories"
+            label.text = "Popular News Categories"
             view.addSubview(label)
             return view
         default:
             let view = UIView(frame: CGRect(x: 0, y: 0, width: tableView.frame.width, height: 30))
             let label = UILabel(frame: view.frame)
             label.font = UIFont.systemFont(ofSize: 15)
-            label.backgroundColor = UIColor.lightGray
+            label.backgroundColor = UIColor(red: 44/255, green: 47/255, blue: 53/255, alpha: 1)
+            label.textColor = UIColor.white
             label.textAlignment = .center
             label.text = "Favorite News"
             view.addSubview(label)
