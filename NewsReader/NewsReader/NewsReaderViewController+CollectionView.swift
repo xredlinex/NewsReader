@@ -1,5 +1,5 @@
 //
-//  NewsReaderViewController+TableView.swift
+//  NewsReaderViewController+CollectionView.swift
 //  NewsReader
 //
 //  Created by alexey sorochan on 04.02.2020.
