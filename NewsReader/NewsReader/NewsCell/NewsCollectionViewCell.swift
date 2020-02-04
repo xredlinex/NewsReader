@@ -16,3 +16,11 @@ class NewsCollectionViewCell: UICollectionViewCell {
     }
 
 }
+
+
+extension NewsCollectionViewCell {
+    
+    func updateCollectionNewsData(_ news: NewsArticleModel) {
+        
+    }
+}

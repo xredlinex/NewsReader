@@ -42,7 +42,11 @@ extension NewsCategoriesViewController: UITableViewDelegate, UITableViewDataSour
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let viewController = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "NewsReaderViewController") as! NewsReaderViewController
-        viewController.searchKeyword = newsCategories[indexPath.row]
+        if let keyword = newsCategories[indexPath.row].keyword {
+            viewController.searchKeyword = keyword
+        } else {
+            showErrorAlert("no search keyword news")
+        }
         navigationController?.pushViewController(viewController, animated: true)
     }
     

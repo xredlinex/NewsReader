@@ -15,16 +15,20 @@ class NewsReaderViewController: UIViewController {
     @IBOutlet weak var collectionView: UICollectionView!
     
     var newsList: [NewsArticleModel] = []
-    var searchKeyword = String()
+    var searchKeyword: String = ""
     var pageNumber = 1
     var pageSize = 10
     var maxcount = 100
     var isLoading = true
+    var parameters: [String : Any] = [:]
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
 
-        collectionView.register(UINib(nibName: <#T##String#>, bundle: <#T##Bundle?#>), forCellWithReuseIdentifier: <#T##String#>)
+        newsRequest(searchKeyword)
+        
+        collectionView.register(UINib(nibName: "NewsCollectionViewCell", bundle: nil), forCellWithReuseIdentifier: "NewsCollectionViewCell")
         collectionView.reloadData()
     }
 }
@@ -32,7 +36,11 @@ class NewsReaderViewController: UIViewController {
 
 extension NewsReaderViewController {
     
-    func newsRequest(_ parameters: [String : Any]) {
+    func newsRequest(_ keyword: String) {
+        
+        parameters = ["q" : keyword,
+                      "pageSize" : pageSize,
+                      "page" : pageNumber]
         
         if !isLoading {
             
@@ -49,11 +57,11 @@ extension NewsReaderViewController {
                                     if let articles = newsModel.articles {
                                         self.newsList.append(contentsOf: articles)
                                     } else {
-                                        showErrorAlert("news not found")
+                                        self.showErrorAlert("news not found")
                                     }
                                     self.collectionView.reloadData()
                                 } catch {
-                                    showErrorAlert("news not found or thms else")
+                                    self.showErrorAlert("news not found or thms else")
                                 }
                             }
                 }
