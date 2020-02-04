@@ -24,12 +24,11 @@ class NewsReaderViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-
-        newsRequest(searchKeyword)
-        
+    
+       newsRequest(searchKeyword)
         collectionView.register(UINib(nibName: "NewsCollectionViewCell", bundle: nil), forCellWithReuseIdentifier: "NewsCollectionViewCell")
-        collectionView.reloadData()
+
+//        collectionView.reloadData()
     }
 }
 

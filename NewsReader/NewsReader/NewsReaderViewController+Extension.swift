@@ -18,6 +18,8 @@ extension NewsReaderViewController {
                       "pageSize" : pageSize,
                       "page" : pageNumber]
         
+        debugPrint(parameters)
+        
         if !isLoading {
             
             let url = URL(string: "https://newsapi.org/v2/everything")
@@ -32,6 +34,7 @@ extension NewsReaderViewController {
                                 let newsModel = try JSONDecoder().decode(NewsModel.self, from: date)
                                     if let articles = newsModel.articles {
                                         self.newsList.append(contentsOf: articles)
+                                        debugPrint(articles.count)
                                     } else {
                                         self.showErrorAlert("news not found")
                                     }
