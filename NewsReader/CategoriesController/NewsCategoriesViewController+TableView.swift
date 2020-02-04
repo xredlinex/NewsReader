@@ -40,6 +40,16 @@ extension NewsCategoriesViewController: UITableViewDelegate, UITableViewDataSour
         }
     }
     
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let viewController = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "NewsReaderViewController") as! NewsReaderViewController
+        if let keyword = newsCategories[indexPath.row].keyword {
+            viewController.searchKeyword = keyword
+        } else {
+            showErrorAlert("no search keyword news")
+        }
+        navigationController?.pushViewController(viewController, animated: true)
+    }
+    
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         return UITableView.automaticDimension
     }

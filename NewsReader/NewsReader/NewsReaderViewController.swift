@@ -7,14 +7,68 @@
 //
 
 import UIKit
+import Alamofire
+import AlamofireObjectMapper
 
 class NewsReaderViewController: UIViewController {
 
-    var searchKeyword = String()
+    @IBOutlet weak var collectionView: UICollectionView!
+    
+    var newsList: [NewsArticleModel] = []
+    var searchKeyword: String = ""
+    var pageNumber = 1
+    var pageSize = 10
+    var maxcount = 100
+    var isLoading = true
+    var parameters: [String : Any] = [:]
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
 
+        newsRequest(searchKeyword)
+        
+        collectionView.register(UINib(nibName: "NewsCollectionViewCell", bundle: nil), forCellWithReuseIdentifier: "NewsCollectionViewCell")
+        collectionView.reloadData()
+    }
+}
+
+
+extension NewsReaderViewController {
+    
+    func newsRequest(_ keyword: String) {
+        
+        parameters = ["q" : keyword,
+                      "pageSize" : pageSize,
+                      "page" : pageNumber]
+        
+        if !isLoading {
+            
+            let url = URL(string: "https://newsapi.org/v2/everything")
+            if let recieveUrl = url {
+                Alamofire.request(recieveUrl, method: .get,
+                                  parameters: parameters,
+                                  encoding: URLEncoding.default,
+                                  headers: ["X-Api-Key": "4ea21ee288f24ae880ef13ebda15edbd"]).responseData { (respomse) in
+                    self.isLoading = true
+                        if let date = respomse.result.value {
+                            do {
+                                let newsModel = try JSONDecoder().decode(NewsModel.self, from: date)
+                                    if let articles = newsModel.articles {
+                                        self.newsList.append(contentsOf: articles)
+                                    } else {
+                                        self.showErrorAlert("news not found")
+                                    }
+                                    self.collectionView.reloadData()
+                                } catch {
+                                    self.showErrorAlert("news not found or thms else")
+                                }
+                            }
+                }
+            } else {
+                showErrorAlert("fatal error")
+            }
+        }
         
     }
 }
