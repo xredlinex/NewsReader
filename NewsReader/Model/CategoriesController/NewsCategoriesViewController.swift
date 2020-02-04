@@ -14,6 +14,10 @@ class NewsCategoriesViewController: UIViewController {
 
     @IBOutlet weak var tableView: UITableView!
     
+    @IBOutlet weak var showSearchBarHeightConstraint: NSLayoutConstraint!
+    
+    
+    
     var newsCategories: [NewsCategories] = []
     var favoriteNews: [NewsArticleModel] = []
     
@@ -29,41 +33,18 @@ class NewsCategoriesViewController: UIViewController {
         tableView.dataSource = self
         tableView.reloadData()
     }
+    @IBAction func didTapShowSearchBarActionButton(_ sender: Any) {
+        showSearchBarHeightConstraint.priority = UILayoutPriority(rawValue: 800)
+    }
 }
 
-extension NewsCategoriesViewController: UITableViewDelegate, UITableViewDataSource {
-    
-    func numberOfSections(in tableView: UITableView) -> Int {
-        if favoriteNews.isEmpty {
-            return 1
-        } else {
-            return 2
-        }
-    }
-    
-    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        switch (section) {
-        case 0:
-            return newsCategories.count
-        default:
-            return favoriteNews.count
-        }
-    }
-    
-    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        switch (indexPath.section) {
-        case 0:
-            let cell = tableView.dequeueReusableCell(withIdentifier: "CategoriesTableViewCell", for: indexPath) as! CategoriesTableViewCell
-            cell.updateCategoriesName(newsCategories[indexPath.row])
-            return cell
-        default:
-            let cell = tableView.dequeueReusableCell(withIdentifier: "FavoritesTableViewCell", for: indexPath) as! FavoritesTableViewCell
-            cell.updateFavoritesCell(favoriteNews[indexPath.row])
-            return cell
-        }
-    }
-    
-}
+
+
+
+
+
+
+
 
 
 extension NewsCategoriesViewController {

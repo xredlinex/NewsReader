@@ -11,19 +11,12 @@ import UIKit
 class CategoriesTableViewCell: UITableViewCell {
 
   
+    @IBOutlet weak var newsView: UIView!
     @IBOutlet weak var newsCategoriesNameTextLabel: UILabel!
     
     override func awakeFromNib() {
         super.awakeFromNib()
-        // Initialization code
     }
-
-    override func setSelected(_ selected: Bool, animated: Bool) {
-        super.setSelected(selected, animated: animated)
-
-        // Configure the view for the selected state
-    }
-    
 }
 
 
@@ -32,5 +25,9 @@ extension CategoriesTableViewCell {
     func updateCategoriesName(_ newsCategories: NewsCategories) {
         
         newsCategoriesNameTextLabel.text = newsCategories.name ?? "-"
+        
+        newsView.clipsToBounds = true
+        newsView.layer.cornerRadius = 12
+        
     }
 }
