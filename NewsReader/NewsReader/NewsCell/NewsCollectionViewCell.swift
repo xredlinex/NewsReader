@@ -20,18 +20,8 @@ class NewsCollectionViewCell: UICollectionViewCell {
     
     override func awakeFromNib() {
         super.awakeFromNib()
-//        self.contentView.autoresizingMask.insert(.flexibleHeight)
-//        self.contentView.autoresizingMask = UIViewAutoresizingFlexibleHeight | UIViewAutoresizingFlexibleWidth;
-//        self.contentView.translatesAutoresizingMaskIntoConstraints = true
-//        translatesAutoresizingMaskIntoConstraints = false
-//        contentView.autoresizesSubviews = true
-//        self.contentView.autoresizingMask.insert(.flexibleHeight)
-//        self.contentView.frame = self.bounds
-//        let screen = UIScreen.main.bounds.size.width
-//        widthAnchor.constraint(equalToConstant: screen - (2 - 12))
-        
-        
     }
+
 
     @IBAction func didTapAddToFavoritesActionButton(_ sender: Any) {
     }
@@ -41,11 +31,7 @@ class NewsCollectionViewCell: UICollectionViewCell {
 extension NewsCollectionViewCell {
     
     func updateCollectionNewsData(_ news: NewsArticleModel) {
-        
-//        translatesAutoresizingMaskIntoConstraints = false
-//              contentView.autoresizesSubviews = true
-//              self.contentView.autoresizingMask.insert(.flexibleHeight)
-//              self.contentView.frame = self.bounds
+
         
         if let url = news.urlToImage {
             let imgUrl = URL(string: url)

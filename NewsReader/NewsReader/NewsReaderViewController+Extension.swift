@@ -48,6 +48,5 @@ extension NewsReaderViewController {
                 showErrorAlert("fatal error")
             }
         }
-        
     }
 }
