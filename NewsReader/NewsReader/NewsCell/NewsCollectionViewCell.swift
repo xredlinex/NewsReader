@@ -9,6 +9,11 @@
 import UIKit
 import Kingfisher
 
+protocol NewsCollectionCellDelegate {
+    
+    func didAddToFavorite(index: Int)
+}
+
 class NewsCollectionViewCell: UICollectionViewCell {
     
     @IBOutlet weak var addToFavoriteImageView: UIImageView!
@@ -18,12 +23,15 @@ class NewsCollectionViewCell: UICollectionViewCell {
     @IBOutlet weak var newsDescriptionTextLabel: UILabel!
     @IBOutlet weak var publishTextLabel: UILabel!
     
+    var delegate: NewsCollectionCellDelegate?
+    
     override func awakeFromNib() {
         super.awakeFromNib()
     }
 
 
     @IBAction func didTapAddToFavoritesActionButton(_ sender: Any) {
+        delegate?.didAddToFavorite(index: tag)
     }
 }
 
@@ -31,9 +39,21 @@ class NewsCollectionViewCell: UICollectionViewCell {
 extension NewsCollectionViewCell {
     
     func updateCollectionNewsData(_ news: NewsArticleModel) {
+        
+        if news.favorite == true {
+            addToFavoriteImageView.image = UIImage(systemName: "star.fill")
+            debugPrint(news.favorite)
+        } else {
+            addToFavoriteImageView.image = UIImage(systemName: "star")
+        }
+        
+        
+        
+        
+        
+        
+        
 
-        
-        
         if let url = news.urlToImage {
             let imgUrl = URL(string: url)
             newsImageView.kf.setImage(with: imgUrl)

@@ -20,7 +20,6 @@ class NewsModel: Codable {
         case totalResults = "totalResults"
         case articles = "articles"
     }
-    
 }
 
 class NewsArticleModel: Codable {
@@ -32,6 +31,8 @@ class NewsArticleModel: Codable {
     var urlToImage: String?
     var publishedAt: String?
     var content: String?
+//    var favorite: Bool?
+    var favorite = false
     
     enum CodingKeys: String, CodingKey {
         case source, author, title, description, url, urlToImage, publishedAt, content

@@ -23,7 +23,9 @@ extension NewsReaderViewController: UICollectionViewDataSource, UICollectionView
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "NewsCollectionViewCell", for: indexPath) as! NewsCollectionViewCell
         cell.updateCollectionNewsData(newsList[indexPath.row])
-        cell.autoresizesSubviews = true
+//        cell.autoresizesSubviews = true
+        cell.delegate = self
+        cell.tag = indexPath.row
         
         return cell
     }
@@ -48,7 +50,7 @@ extension NewsReaderViewController: UICollectionViewDataSource, UICollectionView
     
 
     func collectionView(_ collectionView: UICollectionView, layout: UICollectionViewLayout, sizeForItemAtIndexPath indexPath: NSIndexPath) -> CGSize {
-        let random = Int(arc4random_uniform((UInt32)(200)))
+        let random = Int(arc4random_uniform((UInt32)(100)))
         let size = CGSize(width: collectionView.frame.width / 2 - 10, height: 400 + CGFloat(random))
         return size
     }

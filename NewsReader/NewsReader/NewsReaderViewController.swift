@@ -17,12 +17,14 @@ class NewsReaderViewController: UIViewController {
     @IBOutlet weak var collectionView: UICollectionView!
     
     var newsList: [NewsArticleModel] = []
+    var favoriteList: [NewsArticleModel] = []
     var searchKeyword: String = ""
     var pageNumber = 1
     var pageSize = 10
     var maxcount = 100
     var isLoading = true
     var parameters: [String : Any] = [:]
+    
 
     
     override func viewDidLoad() {

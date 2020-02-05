@@ -16,7 +16,7 @@ class NewsCategoriesViewController: UIViewController {
     @IBOutlet weak var tableView: UITableView!
 
     var newsCategories: [NewsCategories] = []
-    var favoriteNews: [NewsArticleModel] = []
+    var favoriteList: [NewsArticleModel] = []
     
     override func viewDidLoad() {
         super.viewDidLoad()

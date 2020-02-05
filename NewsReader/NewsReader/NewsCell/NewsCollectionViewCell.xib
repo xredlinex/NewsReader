@@ -35,6 +35,9 @@
                                             </imageView>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Dur-CV-2ya">
                                                 <rect key="frame" x="0.0" y="0.0" width="60" height="40"/>
+                                                <connections>
+                                                    <action selector="didTapAddToFavoritesActionButton:" destination="gTV-IL-0wX" eventType="touchUpInside" id="SvL-2R-Kxx"/>
+                                                </connections>
                                             </button>
                                         </subviews>
                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>

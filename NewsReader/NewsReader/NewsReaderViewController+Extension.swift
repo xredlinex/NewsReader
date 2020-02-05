@@ -50,3 +50,17 @@ extension NewsReaderViewController {
         }
     }
 }
+
+
+extension NewsReaderViewController: NewsCollectionCellDelegate {
+    func didAddToFavorite(index: Int) {
+        if newsList[index].favorite == false {
+            newsList[index].favorite = true
+        } else {
+            newsList[index].favorite = false
+        }
+        collectionView.reloadData()
+    }
+    
+    
+}
