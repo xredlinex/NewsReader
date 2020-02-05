@@ -18,20 +18,23 @@ extension NewsReaderViewController {
                       "pageSize" : pageSize,
                       "page" : pageNumber]
         
+        debugPrint(parameters)
+        
         if !isLoading {
             
             let url = URL(string: "https://newsapi.org/v2/everything")
             if let recieveUrl = url {
                 Alamofire.request(recieveUrl, method: .get,
                                   parameters: parameters,
-                                  encoding: URLEncoding.default,
-                                  headers: ["X-Api-Key": "4ea21ee288f24ae880ef13ebda15edbd"]).responseData { (respomse) in
+                                  encoding: URLEncoding.default, 
+                                  headers: ["X-Api-Key": "439c5ba63c944a2cac581d87e18fc759"]).responseData { (respomse) in
                     self.isLoading = true
                         if let date = respomse.result.value {
                             do {
                                 let newsModel = try JSONDecoder().decode(NewsModel.self, from: date)
                                     if let articles = newsModel.articles {
                                         self.newsList.append(contentsOf: articles)
+                                        debugPrint(articles.count)
                                     } else {
                                         self.showErrorAlert("news not found")
                                     }
@@ -45,6 +48,5 @@ extension NewsReaderViewController {
                 showErrorAlert("fatal error")
             }
         }
-        
     }
 }

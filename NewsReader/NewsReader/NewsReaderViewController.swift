@@ -9,6 +9,8 @@
 import UIKit
 import Alamofire
 import AlamofireObjectMapper
+import CollectionViewWaterfallLayout
+
 
 class NewsReaderViewController: UIViewController {
 
@@ -21,17 +23,33 @@ class NewsReaderViewController: UIViewController {
     var maxcount = 100
     var isLoading = true
     var parameters: [String : Any] = [:]
+
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
-
-        newsRequest(searchKeyword)
+        let layout = CollectionViewWaterfallLayout()
+        layout.sectionInset = UIEdgeInsets(top: 10, left: 15, bottom: 10, right: 15)
+        layout.minimumColumnSpacing = 10
+        layout.minimumInteritemSpacing = 10
+        collectionView.collectionViewLayout = layout
         
+
+
         collectionView.register(UINib(nibName: "NewsCollectionViewCell", bundle: nil), forCellWithReuseIdentifier: "NewsCollectionViewCell")
-        collectionView.reloadData()
+        if newsList.isEmpty {
+            isLoading = false
+            newsRequest(searchKeyword)
+        }
+    }
+    
+    @IBAction func didTapGoBackButtonActionButton(_ sender: Any) {
+        let viewController = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "NewsCategoriesViewController") as! NewsCategoriesViewController
+        navigationController?.pushViewController(viewController, animated: false)
+        
     }
 }
 
 
+    
 
