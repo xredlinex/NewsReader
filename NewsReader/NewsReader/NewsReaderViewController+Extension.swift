@@ -26,8 +26,8 @@ extension NewsReaderViewController {
             if let recieveUrl = url {
                 Alamofire.request(recieveUrl, method: .get,
                                   parameters: parameters,
-                                  encoding: URLEncoding.default,
-                                  headers: ["X-Api-Key": "4ea21ee288f24ae880ef13ebda15edbd"]).responseData { (respomse) in
+                                  encoding: URLEncoding.default, 
+                                  headers: ["X-Api-Key": "439c5ba63c944a2cac581d87e18fc759"]).responseData { (respomse) in
                     self.isLoading = true
                         if let date = respomse.result.value {
                             do {
