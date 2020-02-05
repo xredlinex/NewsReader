@@ -11,8 +11,8 @@ import Kingfisher
 
 class NewsCollectionViewCell: UICollectionViewCell {
     
-//    @IBOutlet weak var addToFavoriteImageView: UIImageView!
-//    @IBOutlet weak var hotTextLabel: UILabel!
+    @IBOutlet weak var addToFavoriteImageView: UIImageView!
+    @IBOutlet weak var hotTextLabel: UILabel!
     @IBOutlet weak var newsImageView: UIImageView!
     @IBOutlet weak var newsTitleTextLabel: UILabel!
     @IBOutlet weak var newsDescriptionTextLabel: UILabel!
@@ -32,6 +32,7 @@ extension NewsCollectionViewCell {
     
     func updateCollectionNewsData(_ news: NewsArticleModel) {
 
+        
         
         if let url = news.urlToImage {
             let imgUrl = URL(string: url)
@@ -66,4 +67,14 @@ extension NewsCollectionViewCell {
     }
 }
 
-
+extension NewsCollectionViewCell {
+    
+    func didNewsNews(_ dateNews: Date) {
+        
+        
+        
+    }
+    
+    
+    
+}
