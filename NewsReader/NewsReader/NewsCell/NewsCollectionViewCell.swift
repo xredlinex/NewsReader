@@ -16,6 +16,7 @@ protocol NewsCollectionCellDelegate {
 
 class NewsCollectionViewCell: UICollectionViewCell {
     
+    @IBOutlet weak var newNewsTextLabel: UILabel!
     @IBOutlet weak var addToFavoriteImageView: UIImageView!
     @IBOutlet weak var hotTextLabel: UILabel!
     @IBOutlet weak var newsImageView: UIImageView!
@@ -60,6 +61,7 @@ extension NewsCollectionViewCell {
         if let date = news.publishedAt {
             publishTextLabel.text = convertDateToNorm(date)
         }
+        didNewsNews(news.publishedAt ?? "")
     }
 }
 
@@ -82,12 +84,24 @@ extension NewsCollectionViewCell {
 
 extension NewsCollectionViewCell {
     
-    func didNewsNews(_ dateNews: Date) {
+    func didNewsNews(_ publishAt: String) {
         
+        let dateFormatter = DateFormatter()
+        dateFormatter.calendar = Calendar(identifier: .iso8601)
+        dateFormatter.dateFormat = "yyyy-MM-dd'T'hh:mm:ssZ"
+        let calendar = Calendar.current
         
+        guard let dateNews = dateFormatter.date(from: publishAt) else { return }
         
+        if calendar.isDateInToday(dateNews) || calendar.isDateInYesterday(dateNews) {
+            newNewsTextLabel.isHidden = false
+            newNewsTextLabel.text = "NEW"
+            newNewsTextLabel.clipsToBounds = true
+            newNewsTextLabel.layer.cornerRadius = 6
+            newNewsTextLabel.textColor = UIColor.white
+            newNewsTextLabel.backgroundColor = UIColor.red
+        } else {
+            newNewsTextLabel.isHidden = true
+        }
     }
-    
-    
-    
 }

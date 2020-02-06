@@ -36,6 +36,8 @@ extension NewsCategoriesViewController: UITableViewDelegate, UITableViewDataSour
         default:
             let cell = tableView.dequeueReusableCell(withIdentifier: "FavoritesTableViewCell", for: indexPath) as! FavoritesTableViewCell
             cell.updateFavoritesCell(favoriteList[indexPath.row])
+            cell.delegate = self
+            cell.tag = indexPath.row
             return cell
         }
     }
@@ -53,6 +55,7 @@ extension NewsCategoriesViewController: UITableViewDelegate, UITableViewDataSour
             navigationController?.pushViewController(viewController, animated: true)
         default:
             debugPrint("favor")
+
         }
     }
     

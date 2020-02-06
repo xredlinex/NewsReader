@@ -17,7 +17,7 @@
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="oAX-zL-h3M">
                                 <rect key="frame" x="0.0" y="174" width="414" height="688"/>
-                                <color key="backgroundColor" red="0.17283391949999999" green="0.18382126090000001" blue="0.2078465521" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                <color key="backgroundColor" red="0.13747477529999999" green="0.14468869570000001" blue="0.164708674" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                             </tableView>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="UrE-UU-2Ql">
                                 <rect key="frame" x="0.0" y="44" width="414" height="50"/>

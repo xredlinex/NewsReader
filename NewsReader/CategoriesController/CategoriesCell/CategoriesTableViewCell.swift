@@ -25,9 +25,7 @@ extension CategoriesTableViewCell {
     func updateCategoriesName(_ newsCategories: NewsCategories) {
         
         newsCategoriesNameTextLabel.text = newsCategories.name ?? "-"
-        
         newsView.clipsToBounds = true
         newsView.layer.cornerRadius = 12
-        
     }
 }
