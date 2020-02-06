@@ -16,10 +16,8 @@ extension NewsReaderViewController {
         
         parameters = ["q" : keyword,
                       "pageSize" : pageSize,
-                      "page" : pageNumber]
-        
-        debugPrint(parameters)
-        
+                      "page" : pageNumber,
+                      "sortBy" : "relevancy"]
         if !isLoading {
             
             let url = URL(string: "https://newsapi.org/v2/everything")
@@ -55,22 +53,13 @@ extension NewsReaderViewController {
 extension NewsReaderViewController: NewsCollectionCellDelegate {
     
     func didAddToFavorite(index: Int) {
-        
-//        if newsList[index].favorite == false {
-//            newsList[index].favorite = true
-//        } else {
-//            newsList[index].favorite = false
-//        }
 
-    
         if favoriteList.contains(where: { $0.publishedAt == newsList[index].publishedAt && $0.title == newsList[index].title}) {
-           
             favoriteList.removeAll(where: { $0.publishedAt == newsList[index].publishedAt && $0.title == newsList[index].title})
             newsList[index].favorite = false
         } else {
             newsList[index].favorite = true
             favoriteList.append(newsList[index])
-            
         }
         collectionView.reloadData()
     }

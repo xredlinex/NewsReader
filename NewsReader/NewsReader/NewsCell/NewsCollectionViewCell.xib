@@ -51,9 +51,9 @@
                                             <constraint firstAttribute="trailing" secondItem="Dur-CV-2ya" secondAttribute="trailing" id="ncf-ES-LkX"/>
                                         </constraints>
                                     </view>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="89h-oS-KGE">
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="89h-oS-KGE">
                                         <rect key="frame" x="10" y="10" width="46" height="20"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="10"/>
+                                        <fontDescription key="fontDescription" type="boldSystem" pointSize="16"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
@@ -143,6 +143,7 @@
             <size key="customSize" width="156" height="274"/>
             <connections>
                 <outlet property="addToFavoriteImageView" destination="FNN-N8-xZc" id="QIe-b6-dz7"/>
+                <outlet property="newNewsTextLabel" destination="89h-oS-KGE" id="7NN-Z8-fJW"/>
                 <outlet property="newsDescriptionTextLabel" destination="YTT-2a-dlL" id="8IU-0N-41i"/>
                 <outlet property="newsImageView" destination="ree-td-1Tz" id="GfW-Is-QGB"/>
                 <outlet property="newsTitleTextLabel" destination="MPi-ie-0Ce" id="Nmm-Eg-Dha"/>

@@ -37,18 +37,7 @@ extension NewsReaderViewController: UICollectionViewDataSource, UICollectionView
             self.newsRequest(searchKeyword)
         }
     }
-    
-//    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-//        let size = CGSize(width: collectionView.frame.width / 2 - 5, height: collectionView.frame.height )
-//
-//
-//        return size
-//
-//    }
-
-
-    
-
+ 
     func collectionView(_ collectionView: UICollectionView, layout: UICollectionViewLayout, sizeForItemAtIndexPath indexPath: NSIndexPath) -> CGSize {
         let random = Int(arc4random_uniform((UInt32)(100)))
         let size = CGSize(width: collectionView.frame.width / 2 - 10, height: 400 + CGFloat(random))
