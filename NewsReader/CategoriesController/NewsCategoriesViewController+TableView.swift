@@ -41,14 +41,19 @@ extension NewsCategoriesViewController: UITableViewDelegate, UITableViewDataSour
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        let viewController = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "NewsReaderViewController") as! NewsReaderViewController
-        if let keyword = newsCategories[indexPath.row].keyword {
-            viewController.searchKeyword = keyword
-            viewController.favoriteList = favoriteList
-        } else {
-            showErrorAlert("no search keyword news")
+        switch (indexPath.section) {
+        case 0:
+            let viewController = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "NewsReaderViewController") as! NewsReaderViewController
+            if let keyword = newsCategories[indexPath.row].keyword {
+                viewController.searchKeyword = keyword
+                viewController.favoriteList = favoriteList
+            } else {
+                showErrorAlert("no search keyword news")
+            }
+            navigationController?.pushViewController(viewController, animated: true)
+        default:
+            debugPrint("favor")
         }
-        navigationController?.pushViewController(viewController, animated: true)
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
