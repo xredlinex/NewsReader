@@ -53,6 +53,13 @@ extension NewsCategoriesViewController: UITableViewDelegate, UITableViewDataSour
             navigationController?.pushViewController(viewController, animated: true)
         default:
             debugPrint("favor")
+            
+            
+            
+            
+            
+            
+            
         }
     }
     
