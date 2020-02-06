@@ -30,28 +30,49 @@ class NewsReaderViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        checkForFavorite()
+        
         let layout = CollectionViewWaterfallLayout()
         layout.sectionInset = UIEdgeInsets(top: 10, left: 15, bottom: 10, right: 15)
         layout.minimumColumnSpacing = 10
         layout.minimumInteritemSpacing = 10
         collectionView.collectionViewLayout = layout
-        
-
-
+    
         collectionView.register(UINib(nibName: "NewsCollectionViewCell", bundle: nil), forCellWithReuseIdentifier: "NewsCollectionViewCell")
+    
         if newsList.isEmpty {
             isLoading = false
             newsRequest(searchKeyword)
+        }
+        
+        for news in newsList {
+            if news.favorite == true {
+                debugPrint(news.title)
+            }
         }
     }
     
     @IBAction func didTapGoBackButtonActionButton(_ sender: Any) {
         let viewController = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "NewsCategoriesViewController") as! NewsCategoriesViewController
+        viewController.favoriteList = favoriteList
         navigationController?.pushViewController(viewController, animated: false)
         
     }
 }
 
+
+extension NewsReaderViewController {
+    
+    func checkForFavorite() {
+        
+        for news in newsList {
+            if favoriteList.contains(where: { $0.publishedAt == news.publishedAt && $0.title == news.title}) {
+                news.favorite = true
+            }
+        }
+        
+    }
+}
 
     
 

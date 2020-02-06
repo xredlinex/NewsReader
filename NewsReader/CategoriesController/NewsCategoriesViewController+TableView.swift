@@ -11,7 +11,7 @@ import UIKit
 extension NewsCategoriesViewController: UITableViewDelegate, UITableViewDataSource {
     
     func numberOfSections(in tableView: UITableView) -> Int {
-        if favoriteNews.isEmpty {
+        if favoriteList.isEmpty {
             return 1
         } else {
             return 2
@@ -23,7 +23,7 @@ extension NewsCategoriesViewController: UITableViewDelegate, UITableViewDataSour
         case 0:
             return newsCategories.count
         default:
-            return favoriteNews.count
+            return favoriteList.count
         }
     }
     
@@ -35,7 +35,7 @@ extension NewsCategoriesViewController: UITableViewDelegate, UITableViewDataSour
             return cell
         default:
             let cell = tableView.dequeueReusableCell(withIdentifier: "FavoritesTableViewCell", for: indexPath) as! FavoritesTableViewCell
-            cell.updateFavoritesCell(favoriteNews[indexPath.row])
+            cell.updateFavoritesCell(favoriteList[indexPath.row])
             return cell
         }
     }
@@ -44,6 +44,7 @@ extension NewsCategoriesViewController: UITableViewDelegate, UITableViewDataSour
         let viewController = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "NewsReaderViewController") as! NewsReaderViewController
         if let keyword = newsCategories[indexPath.row].keyword {
             viewController.searchKeyword = keyword
+            viewController.favoriteList = favoriteList
         } else {
             showErrorAlert("no search keyword news")
         }

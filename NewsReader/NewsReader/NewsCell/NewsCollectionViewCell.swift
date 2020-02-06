@@ -46,13 +46,6 @@ extension NewsCollectionViewCell {
         } else {
             addToFavoriteImageView.image = UIImage(systemName: "star")
         }
-        
-        
-        
-        
-        
-        
-        
 
         if let url = news.urlToImage {
             let imgUrl = URL(string: url)

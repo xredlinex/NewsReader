@@ -34,7 +34,7 @@ extension NewsReaderViewController {
                                 let newsModel = try JSONDecoder().decode(NewsModel.self, from: date)
                                     if let articles = newsModel.articles {
                                         self.newsList.append(contentsOf: articles)
-                                        debugPrint(articles.count)
+                                        self.checkForFavorite()
                                     } else {
                                         self.showErrorAlert("news not found")
                                     }
@@ -53,14 +53,25 @@ extension NewsReaderViewController {
 
 
 extension NewsReaderViewController: NewsCollectionCellDelegate {
+    
     func didAddToFavorite(index: Int) {
-        if newsList[index].favorite == false {
-            newsList[index].favorite = true
-        } else {
+        
+//        if newsList[index].favorite == false {
+//            newsList[index].favorite = true
+//        } else {
+//            newsList[index].favorite = false
+//        }
+
+    
+        if favoriteList.contains(where: { $0.publishedAt == newsList[index].publishedAt && $0.title == newsList[index].title}) {
+           
+            favoriteList.removeAll(where: { $0.publishedAt == newsList[index].publishedAt && $0.title == newsList[index].title})
             newsList[index].favorite = false
+        } else {
+            newsList[index].favorite = true
+            favoriteList.append(newsList[index])
+            
         }
         collectionView.reloadData()
     }
-    
-    
 }
