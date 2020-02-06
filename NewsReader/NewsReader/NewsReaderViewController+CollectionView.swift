@@ -23,7 +23,6 @@ extension NewsReaderViewController: UICollectionViewDataSource, UICollectionView
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "NewsCollectionViewCell", for: indexPath) as! NewsCollectionViewCell
         cell.updateCollectionNewsData(newsList[indexPath.row])
-//        cell.autoresizesSubviews = true
         cell.delegate = self
         cell.tag = indexPath.row
         

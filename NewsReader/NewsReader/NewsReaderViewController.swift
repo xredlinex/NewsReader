@@ -25,8 +25,6 @@ class NewsReaderViewController: UIViewController {
     var isLoading = true
     var parameters: [String : Any] = [:]
     
-
-    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -44,19 +42,12 @@ class NewsReaderViewController: UIViewController {
             isLoading = false
             newsRequest(searchKeyword)
         }
-        
-        for news in newsList {
-            if news.favorite == true {
-                debugPrint(news.title)
-            }
-        }
     }
     
     @IBAction func didTapGoBackButtonActionButton(_ sender: Any) {
         let viewController = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "NewsCategoriesViewController") as! NewsCategoriesViewController
         viewController.favoriteList = favoriteList
         navigationController?.pushViewController(viewController, animated: false)
-        
     }
 }
 
@@ -70,7 +61,6 @@ extension NewsReaderViewController {
                 news.favorite = true
             }
         }
-        
     }
 }
 

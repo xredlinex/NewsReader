@@ -6,4 +6,11 @@
 //  Copyright © 2020 alexey sorochan. All rights reserved.
 //
 
-import Foundation
+import UIKit
+
+extension NewsCategoriesViewController: FavoriteTebleCellDelegate {
+    func removeFromFavorite(index: Int) {
+        favoriteList.remove(at: index)
+        tableView.reloadData()
+    }
+}

@@ -7,13 +7,20 @@
 //
 
 import UIKit
+import Kingfisher
+
+protocol FavoriteTebleCellDelegate {
+    func removeFromFavorite(index: Int)
+}
 
 class FavoritesTableViewCell: UITableViewCell {
     
+
+    @IBOutlet weak var newsImageView: UIImageView!
     @IBOutlet weak var newsTitleTextLabel: UILabel!
-    
     @IBOutlet weak var newsDescriptionTextLabel: UILabel!
     
+    var delegate: FavoriteTebleCellDelegate?
 
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -25,6 +32,10 @@ class FavoritesTableViewCell: UITableViewCell {
 
         // Configure the view for the selected state
     }
+    @IBAction func didTapRemoveFavoriteActionButton(_ sender: Any) {
+        delegate?.removeFromFavorite(index: tag)
+        
+    }
     
 }
 
@@ -32,6 +43,10 @@ class FavoritesTableViewCell: UITableViewCell {
 extension FavoritesTableViewCell {
     
     func updateFavoritesCell(_ news: NewsArticleModel) {
+        if let url = news.urlToImage {
+            let imgURL = URL(string: url)
+            newsImageView.kf.setImage(with: imgURL)
+        }
         
         newsTitleTextLabel.text = news.title ?? "-"
         newsDescriptionTextLabel.text = news.description ?? "-"
