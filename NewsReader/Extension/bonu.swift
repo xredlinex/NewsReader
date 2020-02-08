@@ -1,6 +1,6 @@
 //
 //  Class+Extension.swift
-//
+//  
 //
 //  Created by alexey sorochan on 04.02.2020.
 //
