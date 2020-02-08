@@ -8,5 +8,7 @@ target 'NewsReader' do
   pod 'Alamofire', '~> 4.7'
   pod 'AlamofireObjectMapper', '~> 5.2'
   pod 'Kingfisher', '~> 5.0'
+  pod "CollectionViewWaterfallLayout"
+  
 
 end
