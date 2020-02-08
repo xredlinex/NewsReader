@@ -13,7 +13,7 @@ import AlamofireObjectMapper
 extension NewsReaderViewController {
     
     func newsRequest(_ keyword: String) {
-        
+        showActivityIndicator(indiText: "Loading News")
         parameters = ["q" : keyword,
                       "pageSize" : pageSize,
                       "page" : pageNumber,
@@ -36,7 +36,8 @@ extension NewsReaderViewController {
                                     } else {
                                         self.showErrorAlert("news not found")
                                     }
-                                    self.collectionView.reloadData()
+                                self.hideActivityIndicator()
+                                self.collectionView.reloadData()
                                 } catch {
                                     self.showErrorAlert("news not found or thms else")
                                 }

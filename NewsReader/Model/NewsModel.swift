@@ -31,7 +31,6 @@ class NewsArticleModel: Codable {
     var urlToImage: String?
     var publishedAt: String?
     var content: String?
-//    var favorite: Bool?
     var favorite = false
     
     enum CodingKeys: String, CodingKey {
@@ -48,5 +47,4 @@ class NewsArticleSourceModel: Codable {
         case name = "name"
 
     }
-    
 }
