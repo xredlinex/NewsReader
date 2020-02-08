@@ -50,12 +50,19 @@ extension NewsCategoriesViewController: UITableViewDelegate, UITableViewDataSour
                 viewController.searchKeyword = keyword
                 viewController.favoriteList = favoriteList
             } else {
+                hideActivityIndicator()
                 showErrorAlert("no search keyword news")
+                navigationController?.popViewController(animated: false)
             }
             navigationController?.pushViewController(viewController, animated: true)
         default:
-            debugPrint("favor")
-
+            let viewController = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "WebViewController") as! WebViewController
+            if let url = favoriteList[indexPath.row].url {
+                viewController.url = url
+                navigationController?.pushViewController(viewController, animated: true)
+            } else {
+                showErrorAlert("Sorry News Sourse Link")
+            }
         }
     }
     

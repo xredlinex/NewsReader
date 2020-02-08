@@ -20,7 +20,7 @@ class NewsCategoriesViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-//        getnews()
+
         newsCategories = MakeNewsCategories().makeCat()
         
         tableView.register(UINib(nibName: "CategoriesTableViewCell", bundle: nil), forCellReuseIdentifier: "CategoriesTableViewCell")

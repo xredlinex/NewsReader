@@ -15,15 +15,18 @@ class WebViewController: UIViewController {
     
     var url = String()
     
-
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        
+        showActivityIndicator(indiText: "Loading Page")
         if let urlRecieve = URL(string: url) {
             let urlRequest = URLRequest(url: urlRecieve)
             newsWebView.load(urlRequest)
+        } else {
+            hideActivityIndicator()
+            showErrorAlert("News Not Found")
+            navigationController?.popViewController(animated: false)
         }
-        
         newsWebView.navigationDelegate = self
     }
     
@@ -33,12 +36,8 @@ class WebViewController: UIViewController {
 }
 
 extension WebViewController: WKNavigationDelegate {
-    
-    func webView(_ webView: WKWebView, didStartProvisionalNavigation navigation: WKNavigation!) {
-        debugPrint("show activity indicator")
-    }
-    
+ 
     func webView(_ webView: WKWebView, didFinish navigation: WKNavigation!) {
-        <#code#>
+        hideActivityIndicator()
     }
 }

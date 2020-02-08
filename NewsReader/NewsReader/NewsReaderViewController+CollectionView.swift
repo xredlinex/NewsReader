@@ -29,6 +29,17 @@ extension NewsReaderViewController: UICollectionViewDataSource, UICollectionView
         return cell
     }
     
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        let viewController = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "WebViewController") as! WebViewController
+        if let url = newsList[indexPath.row].url {
+            viewController.url = url
+            navigationController?.pushViewController(viewController, animated: true)
+        } else {
+            showErrorAlert("Sorry News Sourse Link")
+        }
+    }
+    
+    
     func collectionView(_ collectionView: UICollectionView, willDisplay cell: UICollectionViewCell, forItemAt indexPath: IndexPath) {
         if newsList.count < maxcount && indexPath.row >= newsList.count - 1 {
             pageNumber += 1
