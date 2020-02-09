@@ -10,7 +10,6 @@ import UIKit
 
 class CategoriesTableViewCell: UITableViewCell {
 
-  
     @IBOutlet weak var newsView: UIView!
     @IBOutlet weak var newsCategoriesNameTextLabel: UILabel!
     
@@ -18,7 +17,6 @@ class CategoriesTableViewCell: UITableViewCell {
         super.awakeFromNib()
     }
 }
-
 
 extension CategoriesTableViewCell {
     

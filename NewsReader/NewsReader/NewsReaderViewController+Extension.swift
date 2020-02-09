@@ -12,13 +12,27 @@ import AlamofireObjectMapper
 
 extension NewsReaderViewController {
     
-    func newsRequest(_ keyword: String) {
-        
+    func newsRequest(_ keyword: String, sortByDate: Bool? = nil, sortByPop: Bool? = nil) {
+    
         showActivityIndicator(indiText: "Loading News")
+        
+        var sort = String()
+        if sortByDate == true {
+            sort = "publishedAt"
+            debugPrint("sort by date")
+        } else if sortByPop == true {
+            sort = "popularity"
+            debugPrint("sort by pop")
+        } else {
+            sort = "relevancy"
+            debugPrint("defaukt")
+        }
+        
         parameters = ["q" : keyword,
                       "pageSize" : pageSize,
                       "page" : pageNumber,
-                      "sortBy" : "relevancy"]
+                      "sortBy" : sort]
+        debugPrint(parameters)
         if !isLoading {
             let url = URL(string: "https://newsapi.org/v2/everything")
             if let recieveUrl = url {
@@ -33,6 +47,7 @@ extension NewsReaderViewController {
                                 let newsModel = try JSONDecoder().decode(NewsModel.self, from: date)
                                     if let articles = newsModel.articles {
                                         if articles.count != 0 {
+                                            debugPrint(articles.count)
                                             self.newsList.append(contentsOf: articles)
                                             self.checkForFavorite()
                                         } else {
@@ -69,5 +84,34 @@ extension NewsReaderViewController: NewsCollectionCellDelegate {
             favoriteList.append(newsList[index])
         }
         collectionView.reloadData()
+    }
+}
+
+extension NewsReaderViewController {
+    
+    func sortNewsAlertSheet(_ keyword: String) {
+        let alertController = UIAlertController(title: "Sort News By", message: nil, preferredStyle: .actionSheet)
+        let sortByDateAction = UIAlertAction(title: "sort by date", style: .default) { (_) in
+            self.newsList.removeAll()
+            self.isLoading = false
+            self.newsRequest(keyword, sortByDate: true)
+        }
+        let sortByPopularity = UIAlertAction(title: "sort by popularity", style: .default) { (_) in
+            self.newsList.removeAll()
+            self.isLoading = false
+            self.newsRequest(keyword, sortByPop: true)
+        }
+        let sortByTitleAction = UIAlertAction(title: "sort by title (default)", style: .default) { (_) in
+            self.newsList.removeAll()
+            self.isLoading = false
+            self.newsRequest(keyword)
+        }
+        let cancelAction = UIAlertAction(title: "Cancel", style: .cancel) { (_) in }
+        
+        alertController.addAction(sortByDateAction)
+        alertController.addAction(sortByPopularity)
+        alertController.addAction(sortByTitleAction)
+        alertController.addAction(cancelAction)
+        present(alertController, animated: true, completion:  nil)
     }
 }

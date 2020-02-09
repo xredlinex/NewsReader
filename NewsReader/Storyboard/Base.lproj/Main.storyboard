@@ -199,11 +199,21 @@
                                                     <constraint firstAttribute="height" constant="30" id="JKt-mX-wOY"/>
                                                 </constraints>
                                             </imageView>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="14m-BV-YGv">
+                                                <rect key="frame" x="0.0" y="0.0" width="90" height="50"/>
+                                                <connections>
+                                                    <action selector="didTapSortNewsActionButton:" destination="nQ7-kg-zWH" eventType="touchUpInside" id="t7i-tZ-9AD"/>
+                                                </connections>
+                                            </button>
                                         </subviews>
                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <constraints>
+                                            <constraint firstAttribute="trailing" secondItem="14m-BV-YGv" secondAttribute="trailing" id="0M5-01-9i1"/>
+                                            <constraint firstAttribute="bottom" secondItem="14m-BV-YGv" secondAttribute="bottom" id="FQu-1s-KtA"/>
                                             <constraint firstItem="C7W-YH-tLd" firstAttribute="centerY" secondItem="8wg-YI-PF9" secondAttribute="centerY" id="Pk8-bz-V2M"/>
+                                            <constraint firstItem="14m-BV-YGv" firstAttribute="leading" secondItem="8wg-YI-PF9" secondAttribute="leading" id="lgn-TH-sDr"/>
                                             <constraint firstItem="C7W-YH-tLd" firstAttribute="centerX" secondItem="8wg-YI-PF9" secondAttribute="centerX" multiplier="1.1" id="oqv-NX-9e8"/>
+                                            <constraint firstItem="14m-BV-YGv" firstAttribute="top" secondItem="8wg-YI-PF9" secondAttribute="top" id="pmw-h2-XIy"/>
                                             <constraint firstAttribute="width" constant="90" id="yUl-JL-byt"/>
                                         </constraints>
                                     </view>
@@ -299,8 +309,8 @@
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Ohi-PH-RbO">
                                         <rect key="frame" x="324" y="0.0" width="90" height="50"/>
                                         <subviews>
-                                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="line.horizontal.3" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="gJq-yI-ATW">
-                                                <rect key="frame" x="34.5" y="15" width="30" height="20.5"/>
+                                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="gJq-yI-ATW">
+                                                <rect key="frame" x="34.5" y="10" width="30" height="30"/>
                                                 <color key="tintColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="30" id="8Mq-pB-0Qj"/>

@@ -15,7 +15,6 @@ class NewsCategoriesViewController: UIViewController {
     @IBOutlet weak var searchNewsTextField: UITextField!
     @IBOutlet weak var tableView: UITableView!
     
-    
     var newsCategories: [NewsCategories] = []
     var favoriteList: [NewsArticleModel] = []
     
@@ -34,8 +33,8 @@ class NewsCategoriesViewController: UIViewController {
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        searchNewsTextField.text = ""
         
+        searchNewsTextField.text = ""
     }
     
     @IBAction func didTapSearchNewsActionButton(_ sender: Any) {

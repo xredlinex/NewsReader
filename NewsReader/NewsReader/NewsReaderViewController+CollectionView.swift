@@ -9,7 +9,6 @@
 import UIKit
 import CollectionViewWaterfallLayout
 
-
 extension NewsReaderViewController: UICollectionViewDataSource, UICollectionViewDelegate, CollectionViewWaterfallLayoutDelegate {
 
     func numberOfSections(in collectionView: UICollectionView) -> Int {
@@ -25,7 +24,6 @@ extension NewsReaderViewController: UICollectionViewDataSource, UICollectionView
         cell.updateCollectionNewsData(newsList[indexPath.row])
         cell.delegate = self
         cell.tag = indexPath.row
-        
         return cell
     }
     
@@ -38,7 +36,6 @@ extension NewsReaderViewController: UICollectionViewDataSource, UICollectionView
             showErrorAlert("Sorry News Sourse Link")
         }
     }
-    
     
     func collectionView(_ collectionView: UICollectionView, willDisplay cell: UICollectionViewCell, forItemAt indexPath: IndexPath) {
         if newsList.count < maxcount && indexPath.row >= newsList.count - 1 {

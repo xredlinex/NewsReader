@@ -9,6 +9,7 @@
 import UIKit
 
 extension NewsCategoriesViewController: FavoriteTebleCellDelegate {
+    
     func removeFromFavorite(index: Int) {
         let alertController = UIAlertController(title: "Remove?", message: "Remove News Article From Favorite", preferredStyle: .alert)
         let alertAction = UIAlertAction(title: "OK", style: .default) { (_) in

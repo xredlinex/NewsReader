@@ -11,7 +11,6 @@ import Alamofire
 import AlamofireObjectMapper
 import CollectionViewWaterfallLayout
 
-
 class NewsReaderViewController: UIViewController {
 
     @IBOutlet weak var collectionView: UICollectionView!
@@ -44,13 +43,16 @@ class NewsReaderViewController: UIViewController {
         } else {
             navigationController?.popViewController(animated: false)
         }
-        
     }
     
     @IBAction func didTapGoBackButtonActionButton(_ sender: Any) {
         let viewController = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "NewsCategoriesViewController") as! NewsCategoriesViewController
         viewController.favoriteList = favoriteList
         navigationController?.pushViewController(viewController, animated: false)
+    }
+    
+    @IBAction func didTapSortNewsActionButton(_ sender: Any) {
+        sortNewsAlertSheet(searchKeyword)
     }
 }
 
