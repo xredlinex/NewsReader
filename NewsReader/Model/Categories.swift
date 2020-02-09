@@ -24,8 +24,8 @@ class MakeNewsCategories {
         political.keyword = "political"
         
         let humman = NewsCategories()
-        humman.name = "Humman"
-        humman.keyword = "humman"
+        humman.name = "Human"
+        humman.keyword = "human"
         
         let health = NewsCategories()
         health.name = "Health"
@@ -33,7 +33,7 @@ class MakeNewsCategories {
         
         let technique = NewsCategories()
         technique.name = "Technique"
-        technique.keyword = "tech"
+        technique.keyword = "Technique"
         
         let weather = NewsCategories()
         weather.name = "Weather"

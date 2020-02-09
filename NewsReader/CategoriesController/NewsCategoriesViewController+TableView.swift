@@ -43,18 +43,18 @@ extension NewsCategoriesViewController: UITableViewDelegate, UITableViewDataSour
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        tableView.deselectRow(at: indexPath, animated: false)
         switch (indexPath.section) {
         case 0:
             let viewController = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "NewsReaderViewController") as! NewsReaderViewController
             if let keyword = newsCategories[indexPath.row].keyword {
                 viewController.searchKeyword = keyword
                 viewController.favoriteList = favoriteList
+                navigationController?.pushViewController(viewController, animated: true)
             } else {
                 hideActivityIndicator()
                 showErrorAlert("no search keyword news")
-                navigationController?.popViewController(animated: false)
             }
-            navigationController?.pushViewController(viewController, animated: true)
         default:
             let viewController = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "WebViewController") as! WebViewController
             if let url = favoriteList[indexPath.row].url {

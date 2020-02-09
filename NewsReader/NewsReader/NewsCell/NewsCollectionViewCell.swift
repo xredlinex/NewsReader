@@ -30,7 +30,6 @@ class NewsCollectionViewCell: UICollectionViewCell {
         super.awakeFromNib()
     }
 
-
     @IBAction func didTapAddToFavoritesActionButton(_ sender: Any) {
         delegate?.didAddToFavorite(index: tag)
     }

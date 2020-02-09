@@ -41,7 +41,10 @@ class NewsReaderViewController: UIViewController {
         if newsList.isEmpty {
             isLoading = false
             newsRequest(searchKeyword)
+        } else {
+            navigationController?.popViewController(animated: false)
         }
+        
     }
     
     @IBAction func didTapGoBackButtonActionButton(_ sender: Any) {
@@ -51,11 +54,9 @@ class NewsReaderViewController: UIViewController {
     }
 }
 
-
 extension NewsReaderViewController {
     
     func checkForFavorite() {
-        
         for news in newsList {
             if favoriteList.contains(where: { $0.publishedAt == news.publishedAt && $0.title == news.title}) {
                 news.favorite = true

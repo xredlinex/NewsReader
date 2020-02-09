@@ -15,13 +15,24 @@ extension UIApplication {
 
 extension UIViewController {
     
-        func showErrorAlert(_ message: String) {
+    func showErrorAlert(_ message: String) {
         let customKeyWindow: UIWindow? = UIApplication.shared.keyWindow
         let alertController = UIAlertController(title: "Error!", message: message, preferredStyle: .alert)
         let alertAction = UIAlertAction(title: "OK", style: .default) { (_) in }
         alertController.addAction(alertAction)
         customKeyWindow?.rootViewController?.present(alertController, animated: true, completion: nil)
     }
+    
+    func showNilAlert(_ message: String) {
+        
+        let alertController = UIAlertController(title: "Error", message: message, preferredStyle: .alert)
+        let alertAction = UIAlertAction(title: "OK", style: .default) { (_) in
+            self.navigationController?.popViewController(animated: false)
+        }
+        alertController.addAction(alertAction)
+        present(alertController, animated: true, completion: nil)
+    }
+    
 }
 
 extension UIViewController {
