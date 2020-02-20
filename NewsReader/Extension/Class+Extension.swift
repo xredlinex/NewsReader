@@ -32,7 +32,6 @@ extension UIViewController {
         alertController.addAction(alertAction)
         present(alertController, animated: true, completion: nil)
     }
-    
 }
 
 extension UIViewController {
@@ -56,11 +55,9 @@ extension UIViewController {
         blurView.layer.cornerRadius = 12
         blurView.translatesAutoresizingMaskIntoConstraints = false
         viewForActivity.insertSubview(blurView, at: 0)
-
-        NSLayoutConstraint.activate([
-        blurView.heightAnchor.constraint(equalTo: viewForActivity.heightAnchor),
-        blurView.widthAnchor.constraint(equalTo: viewForActivity.widthAnchor),
-        ])
+        
+        NSLayoutConstraint.activate([blurView.heightAnchor.constraint(equalTo: viewForActivity.heightAnchor),
+                                     blurView.widthAnchor.constraint(equalTo: viewForActivity.widthAnchor)])
         viewForActivity.tag = self.viewForActivityIndicator
         viewForActivity.layer.cornerRadius = 12
         viewForActivity.clipsToBounds = true
