@@ -9,7 +9,6 @@
 import Foundation
 import UIKit
 
-
 class NewsModel: Codable {
     var status: String?
     var totalResults: Int?

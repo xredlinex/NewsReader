@@ -31,7 +31,6 @@ class FavoritesTableViewCell: UITableViewCell {
     }
 }
 
-
 extension FavoritesTableViewCell {
     
     func updateFavoritesCell(_ news: NewsArticleModel) {
